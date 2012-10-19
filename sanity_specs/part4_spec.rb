@@ -1,27 +1,13 @@
 describe "dessert" do
-  it "should have an initialize method" do
-    lambda { Dessert.new }.should_not raise_error(::NoMethodError)
-  end
-
-  it "should have a healthy? method" do
-    lambda { Dessert.new('a', 1).healthy? }.should_not raise_error(::NoMethodError)
-  end
-
-  it "should have a delicious? method" do
-    lambda { Dessert.new('a', 1).delicious? }.should_not raise_error(::NoMethodError)
+  it "should define a constructor" { lambda { Dessert.new }.should_not raise_error(::NoMethodError) }
+  %w(healthy? delicious? lowfat?).each do |method|
+    it "should define #{method}" { Dessert.new('a',1).should respond_to method }
   end
 end
 
 describe "jellybean" do
-  it "should have an initialize method" do
-    lambda { Dessert.new }.should_not raise_error(::NoMethodError)
-  end
-
-  it "should have a healthy? method" do
-    lambda { Dessert.new('a', 1).healthy? }.should_not raise_error(::NoMethodError)
-  end
-
-  it "should have a delicious? method" do
-    lambda { Dessert.new('a', 1).delicious? }.should_not raise_error(::NoMethodError)
+  it "should define a constructor" { lambda { JellyBean.new }.should_not raise_error(::NoMethodError) }
+  %w(healthy? delicious? lowfat?).each do |method|
+    it "should define #{method}" { JellyBean.new('a',1).should respond_to method }
   end
 end
