@@ -4,11 +4,16 @@
 
 
 def palindrome?(str)
-  # YOUR CODE HERE
+  temp = str.upcase.gsub(/[^a-zA-Z]/,'')
+  temp == temp.reverse
 end
 
 def count_words(str)
-  # YOUR CODE HERE
+  temp = str.downcase.gsub(/[^a-zA-Z ]/,'')
+  words = temp.split
+  h = Hash.new(0)
+  words.each {|w| h[w] += 1}
+  h
 end
 
 
